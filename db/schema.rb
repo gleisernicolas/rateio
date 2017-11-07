@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107212652) do
+ActiveRecord::Schema.define(version: 20171107234707) do
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "event_date"
+    t.date "pay_date"
+    t.decimal "total_price"
+    t.integer "participants_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "token"
+  end
+
+  create_table "user_expenses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "expense_id"
+    t.integer "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_id"], name: "index_user_expenses_on_expense_id"
+    t.index ["user_id"], name: "index_user_expenses_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171107212652) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
