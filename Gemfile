@@ -34,8 +34,12 @@ gem 'bootstrap', '~> 4.0.0.beta2'
 
 # Import Jquery gem
 gem 'jquery-rails'
+
 # import simple form from plataformatec
 gem 'simple_form'
+
+# import gem devise used for authentication
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

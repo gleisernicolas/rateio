@@ -1,0 +1,51 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/campuscode02/Desktop/rateio/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/campuscode02/Desktop/rateio/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1510090053
+  }
+}
