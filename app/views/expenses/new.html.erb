@@ -1,0 +1,11 @@
+<%= simple_form_for @expense do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :event_date %>
+  <%= f.input :pay_date %>
+  <%= f.input :total_price %>
+  <%= f.input :participants_amout %>
+  <div class="action">
+    <%= f.button :submit %>
+  </div>
+<% end %>

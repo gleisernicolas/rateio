@@ -1,0 +1,16 @@
+<dl>
+  <dt>Evento</dt>
+  <dd><%= @expense.title %></dd>
+
+  <dt>Descrição</dt>
+  <dd><%= @expense.description %></dd>
+
+  <dt>Data do evento</dt>
+  <dd><%= I18n.l(@expense.event_date) %></dd>
+
+  <dt>Data do pagamento</dt>
+  <dd><%= I18n.l(@expense.pay_date) %></dd>
+
+  <dt>Valor total</dt>
+  <dd><%= I18n.l(@expense.total_price) %></dd>
+</dl>
