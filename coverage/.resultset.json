@@ -20,13 +20,18 @@
       ],
       "/Users/campuscode02/Desktop/rateio/app/models/expense.rb": [
         1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/campuscode02/Desktop/rateio/app/controllers/home_controller.rb": [
         1,
         1,
-        null,
-        null,
         null
       ],
       "/Users/campuscode02/Desktop/rateio/app/controllers/application_controller.rb": [
@@ -37,27 +42,30 @@
       "/Users/campuscode02/Desktop/rateio/app/controllers/expenses_controller.rb": [
         1,
         1,
+        null,
         1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        null,
         null,
         null,
         1,
         1,
-        1,
-        1,
-        1,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        1,
         null,
         null,
         1,
         null,
         1,
-        1,
+        2,
+        null,
         null,
         null,
         null
@@ -85,6 +93,6 @@
         0
       ]
     },
-    "timestamp": 1510099130
+    "timestamp": 1510178423
   }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107223733) do
+ActiveRecord::Schema.define(version: 20171108204751) do
 
   create_table "expenses", force: :cascade do |t|
     t.string "title"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171107223733) do
     t.date "event_date"
     t.date "pay_date"
     t.decimal "total_price"
-    t.integer "participants_amout"
+    t.integer "participants_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

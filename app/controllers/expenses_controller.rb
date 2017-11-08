@@ -1,4 +1,6 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new , create]
+
   def new
     @expense = Expense.new
   end
@@ -9,7 +11,7 @@ class ExpensesController < ApplicationController
       flash[:notice] = 'Rateio cadastrado com sucesso!'
       redirect_to expense_url @expense
     else
-      redirect_to new_expense_path @expense
+      render :new
     end
   end
 
@@ -20,7 +22,8 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:title, :event_date, :pay_date,:total_price,
-                                    :description, :participants_amout)
+    params.require(:expense).permit(:title, :event_date, :pay_date,
+                                    :total_price, :description,
+                                    :participants_amount)
   end
 end

@@ -7,7 +7,7 @@ pt-BR:
         event_date: 'Data do evento'
         pay_date: 'Data do pagamento'
         total_price: 'Valor'
-        participants_amout: 'Participantes'
+        participants_amount: 'Participantes'
 
     models:
       expense: Rateio
