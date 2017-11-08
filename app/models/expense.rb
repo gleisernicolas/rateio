@@ -3,6 +3,10 @@ class Expense < ApplicationRecord
             :participants_amount,
             presence: true
 
+  has_many :user_expenses
+  has_many :users, through: :user_expenses
+  has_secure_token
+
   def pricer_per_participant
     total_price / participants_amount
   end

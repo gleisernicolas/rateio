@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new , create]
+  before_action :authenticate_user!, only: [:new, :create, :invite, :accept_invite]
 
   def new
     @expense = Expense.new
@@ -13,6 +13,17 @@ class ExpensesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def invite
+    @expense = Expense.find_by(token: params[:token])
+  end
+
+  def accept_invite
+    @expense = Expense.find_by(token: params[:token])
+    @expense.users << current_user
+    @expense.save
+    redirect_to @expense
   end
 
   def show
