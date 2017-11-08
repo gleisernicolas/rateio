@@ -13,4 +13,12 @@ feature 'owner adds participants to expense' do
     expect(page).to have_css('h2', text: 'Participantes')
     expect(page).to have_css('li', text: user.name)
   end
+
+  scenario 'and participants is not registered' do
+    expense = create(:expense, title: 'Futebol de domingo')
+
+    visit "/convites/#{expense.token}"
+
+    expect(current_path).to eq(new_user_session_path)
+  end
 end

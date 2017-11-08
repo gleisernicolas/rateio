@@ -1,4 +1,6 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!, only: [:invite, :accept_invite]
+
   def invite
     @expense = Expense.find_by(token: params[:token])
   end
