@@ -6,7 +6,7 @@ class CreateExpenses < ActiveRecord::Migration[5.1]
       t.date :event_date
       t.date :pay_date
       t.decimal :total_price
-      t.integer :participants_amount
+      t.integer :participants_amout
 
       t.timestamps
     end

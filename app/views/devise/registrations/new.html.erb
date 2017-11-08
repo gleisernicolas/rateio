@@ -4,14 +4,21 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+<<<<<<< HEAD
     <%= f.input :name, required: true %>
+=======
+>>>>>>> master
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
   </div>
 
   <div class="form-actions">
+<<<<<<< HEAD
     <%= f.button :submit %>
+=======
+    <%= f.button :submit, "Sign up" %>
+>>>>>>> master
   </div>
 <% end %>
 

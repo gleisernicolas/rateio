@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    attributes:
+      expense:
+        title: 'Título'
+        description: 'Descrição'
+        event_date: 'Data do evento'
+        pay_date: 'Data do pagamento'
+        total_price: 'Valor'
+        participants_amount: 'Participantes'
+
+    models:
+      expense: Rateio

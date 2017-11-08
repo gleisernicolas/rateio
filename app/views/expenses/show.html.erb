@@ -1,10 +1,1 @@
-<h1><%= @expense.title %></h1>
-
-<h2>Participantes</h2>
-<ul>
-  <% @expense.users.each do |user| %>
-    <li>
-      <%= user.name %>
-    </li>
-  <% end %>
-</ul>
+<%= render @expense %>
