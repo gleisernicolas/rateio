@@ -30,6 +30,9 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
   end
 
+  def index
+    @expenses = current_user.expenses
+  end
   private
 
   def expense_params

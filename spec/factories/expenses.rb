@@ -5,6 +5,6 @@ FactoryBot.define do
     event_date '17/12/2017'
     pay_date '10/12/2017'
     total_price '200'
-    participants_amount '22'
+    participants_amount '10'
   end
 end

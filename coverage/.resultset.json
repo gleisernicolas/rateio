@@ -9,6 +9,7 @@
         null,
         null,
         1,
+        1,
         null
       ],
       "/Users/campuscode02/Desktop/rateio/app/models/application_record.rb": [
@@ -31,7 +32,7 @@
         1,
         null,
         1,
-        2,
+        3,
         null,
         null
       ],
@@ -67,6 +68,9 @@
         1,
         2,
         null,
+        null,
+        1,
+        1,
         null,
         1,
         null,
@@ -116,6 +120,6 @@
         0
       ]
     },
-    "timestamp": 1510180274
+    "timestamp": 1510186741
   }
 }
