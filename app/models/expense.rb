@@ -7,7 +7,14 @@ class Expense < ApplicationRecord
   has_many :users, through: :user_expenses
   has_secure_token
 
+
+
   def pricer_per_participant
     total_price / participants_amount
+  end
+
+  def is_owner?(user)
+    owner = user_expenses.find_by(role: 0)
+    user == owner
   end
 end

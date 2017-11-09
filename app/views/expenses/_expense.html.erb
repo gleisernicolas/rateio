@@ -1,31 +1,34 @@
+<div class="dol-md-4">
+  <dl>
+    <dt>Evento</dt>
+    <dd><h1><%= expense.title %></h1></dd>
 
-<dl>
-  <dt>Evento</dt>
-  <dd><h1><%= expense.title %></h1></dd>
+    <dt>Descrição</dt>
+    <dd><%= expense.description %></dd>
 
-  <dt>Descrição</dt>
-  <dd><%= expense.description %></dd>
+    <dt>Data do evento</dt>
+    <dd><%= I18n.l(expense.event_date) %></dd>
 
-  <dt>Data do evento</dt>
-  <dd><%= I18n.l(expense.event_date) %></dd>
+    <dt>Data do pagamento</dt>
+    <dd><%= I18n.l(expense.pay_date) %></dd>
 
-  <dt>Data do pagamento</dt>
-  <dd><%= I18n.l(expense.pay_date) %></dd>
+    <dt>Valor total</dt>
+    <dd><%= number_to_currency(expense.total_price) %></dd>
 
-  <dt>Valor total</dt>
-  <dd><%= number_to_currency(expense.total_price) %></dd>
-
-  <dt>Número de participantes</dt>
-  <dd><%= expense.participants_amount %></dd>
-
-  <dt>Valor por participante</dt>
-  <dd><%= number_to_currency(expense.pricer_per_participant) %></dd>
-  <h2>Participantes</h2>
-  <ul>
-    <% expense.users.each do |user| %>
-      <li>
-        <%= user.name %>
-      </li>
+    <dt>Número de participantes</dt>
+    <dd><%= expense.participants_amount %></dd>
+    <% if expense.is_owner? current_user%>
+      <button class="btn-danger">Apagar rateio</button>
     <% end %>
-  </ul>
-</dl>
+    <dt>Valor por participante</dt>
+    <dd><%= number_to_currency(expense.pricer_per_participant) %></dd>
+    <h2>Participantes</h2>
+    <ul>
+      <% expense.users.each do |user| %>
+        <li>
+          <%= user.name %>
+        </li>
+      <% end %>
+    </ul>
+  </dl>
+</div>
