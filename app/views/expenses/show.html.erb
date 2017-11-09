@@ -1,1 +1,19 @@
 <%= render @expense %>
+<%= link_to 'Confirmar pagamento' %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expense.user_expenses.where(role: :participant).each do |user_expense| %>
+      <tr>
+        <td><%= user_expense.user.name %></td>
+        <td id='<%= "status_#{ user_expense.user.id }" %>'><%= t(user_expense.payment_status) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
