@@ -17,7 +17,7 @@
 
     <dt>Número de participantes</dt>
     <dd><%= expense.participants_amount %></dd>
-    <% if expense.is_owner? current_user%>
+    <% if expense.owner? current_user%>
       <button class="btn-danger">Apagar rateio</button>
     <% end %>
     <dt>Valor por participante</dt>

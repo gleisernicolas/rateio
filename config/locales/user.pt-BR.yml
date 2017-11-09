@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuario
+    attributes:
+      user:
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmar senha
+  helpers:
+    submit:
+      user:
+        create: Cadastrar

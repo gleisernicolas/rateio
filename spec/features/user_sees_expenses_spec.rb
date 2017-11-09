@@ -67,6 +67,5 @@ feature 'participant logs in' do
 
     expect(page).not_to have_css('dd', text: expense1.title)
     expect(page).not_to have_css('dd', text: expense2.title)
-
   end
 end
