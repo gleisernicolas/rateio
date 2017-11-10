@@ -51,11 +51,16 @@ class ExpensesController < ApplicationController
     redirect_to @expense
   end
 
+  def index
+    @expenses = current_user.expenses
+    flash[:alert] = 'Nenhum rateio cadastrado' if @expenses.empty?
+  end
+
   private
 
   def expense_params
     params.require(:expense).permit(:title, :event_date, :pay_date,
-                                    :total_price, :description,
-                                    :participants_amount)
+                                    :total_price,
+                                    :description, :participants_amount)
   end
 end

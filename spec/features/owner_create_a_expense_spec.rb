@@ -73,7 +73,6 @@ feature 'Owner create a expense' do
       click_on 'Criar Rateio'
     end
 
-    expect(page).to have_css('.alert-danger',
-                             text: 'não pode ficar em branco')
+    expect(page).to have_css('.alert-danger', text: 'não pode ficar em branco')
   end
 end

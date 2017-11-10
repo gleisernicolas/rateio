@@ -1,0 +1,163 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/campuscode01/fabricio/rateio/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/models/expense.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        7,
+        null,
+        null,
+        1,
+        7,
+        null,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/models/user_expense.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/controllers/expenses_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        6,
+        6,
+        6,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/controllers/application_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/campuscode01/fabricio/rateio/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1510349631
+  }
+}

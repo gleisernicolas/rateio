@@ -12,6 +12,6 @@ class Expense < ApplicationRecord
   end
 
   def owner
-    owner = user_expenses.find_by(role: :owner).user
+    user_expenses.find_by(role: :owner).user
   end
 end
