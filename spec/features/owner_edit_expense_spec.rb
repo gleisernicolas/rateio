@@ -26,12 +26,31 @@ feature 'owner edit expense' do
     within('div.action') do
       click_on 'Criar Rateio'
     end
+
     click_on 'Editar'
 
     fill_in 'Título', with: 'Aluguel'
     click_on 'Atualizar Rateio'
-    
+
     expect(page).to have_css('dt', text: 'Evento')
     expect(page).to have_css('dd', text: 'Aluguel')
+  end
+
+  scenario 'and it`s not the owner' do
+
+    owner = create(:user)
+    user = create(:user)
+    expense = create(:expense, title: 'Futebol de domingo')
+    expense.user_expenses.create(user: owner, payment_status: :open,
+                                 role: :owner)
+
+    expense.user_expenses.create(user: user, payment_status: :open,
+                                role: :participant)
+
+    login_as(user)
+    visit expense_path(expense)
+
+    expect(page).not_to have_css('button', text: 'Editar')
+
   end
 end

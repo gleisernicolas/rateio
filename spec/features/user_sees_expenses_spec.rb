@@ -6,8 +6,9 @@ feature 'participant logs in' do
     expense2 = create(:expense)
 
     user = create(:user, name: 'Nailson')
-    create(:user_expense, user: user, expense: expense1, role: 1)
-    create(:user_expense, expense: expense2)
+    another_user = create(:user)
+    create(:user_expense, user: user, expense: expense1, role: :owner)
+    create(:user_expense, user: another_user, expense: expense2, role: :owner)
 
     login_as(user)
 
@@ -38,13 +39,14 @@ feature 'participant logs in' do
 
     expect(page).not_to have_css('dd', text: expense2.title)
     expect(page).not_to have_css('button', text: 'Apagar rateio')
-    expect(page).not_to have_css('.alert-danger', text: 'Nenhum rateio cadastrado')
+    expect(page).not_to have_css('.alert-danger',
+                                 text: 'Nenhum rateio cadastrado')
   end
 
   scenario 'and have no expense registred' do
     expense1 = create(:expense, title: 'Churrasco para família')
     expense2 = create(:expense)
-    create(:user_expense,  expense: expense1)
+    create(:user_expense, expense: expense1)
     create(:user_expense, expense: expense2)
 
     user = create(:user, name: 'Nailson', email: 'email@email.com',

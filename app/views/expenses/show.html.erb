@@ -1,3 +1,23 @@
-<div class="row">
-  <%= render @expense %>
-</div>
+<%= render @expense %>
+
+<% if @current_user_expense.payment_status != 'paid' %>
+  <%= link_to 'Confirmar pagamento', pay_expense_path(@expense), method: :post %>
+<% end %>
+
+<h2>Participantes</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_expenses.each do |user_expense| %>
+      <tr>
+        <td><%= user_expense.user.name %></td>
+        <td id='<%= "status_#{ user_expense.user.id }" %>'><%= t(user_expense.payment_status) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

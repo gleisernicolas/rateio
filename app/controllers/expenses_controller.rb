@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create,
-                                            :invite, :accept_invite]
+  before_action :authenticate_user!, only: [:new, :create, :invite,
+                                            :accept_invite]
 
   def new
     @expense = Expense.new
@@ -9,9 +9,12 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
-      @expense.user_expenses.create(user: current_user, role: 0)
+
+      @expense.user_expenses.create(user: current_user, payment_status: :open,
+                                    role: :owner)
+
       flash[:notice] = 'Rateio cadastrado com sucesso!'
-      redirect_to expense_url @expense
+      redirect_to expense_path @expense
     else
       render :new
     end
@@ -19,24 +22,40 @@ class ExpensesController < ApplicationController
 
   def invite
     @expense = Expense.find_by(token: params[:token])
+    if UserExpense.find_by(user: current_user, expense: @expense)
+      flash[:notice] = 'Você já está nesse rateio'
+      redirect_to @expense
+    else
+      render :invite
+    end
   end
 
   def accept_invite
     @expense = Expense.find_by(token: params[:token])
-    @expense.users << current_user
-    @expense.save
+    @expense.user_expenses.create(user: current_user, payment_status: :open,
+                                  role: :participant)
     redirect_to @expense
   end
 
   def show
     @expense = Expense.find(params[:id])
+    @user_expenses = @expense.user_expenses
+    @current_user_expense = current_user.user_expenses.find_by(
+      expense: @expense
+    )
+  end
+
+  def pay
+    @expense = Expense.find(params[:id])
+    user_expense = @expense.user_expenses.find_by(user: current_user)
+    user_expense.paid!
+    user_expense.save
+    redirect_to @expense
   end
 
   def index
     @expenses = current_user.expenses
-    if @expenses.empty?
-      flash[:alert] = 'Nenhum rateio cadastrado'
-    end
+    flash[:alert] = 'Nenhum rateio cadastrado' if @expenses.empty?
   end
 
   def edit
@@ -44,14 +63,15 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    @expense = Expense.new(expense_params)
-    if @expense.save
+    @expense = Expense.find(params[:id])
+    if @expense.update(expense_params)
       flash[:notice] = 'Rateio atualizado com sucesso!'
       redirect_to expense_url @expense
     else
       render :new
     end
   end
+
   private
 
   def expense_params

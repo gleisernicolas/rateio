@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Owner create a expense' do
   scenario 'successfully' do
-    user = create(:user)
+    user = create(:user, email: 'teste@teste.com', password: '1q2w30')
     login_as(user)
 
     visit root_path
@@ -47,6 +47,12 @@ feature 'Owner create a expense' do
 
     expect(page).to have_css('dt', text: 'Valor por participante')
     expect(page).to have_css('dd', text: 'R$ 30,00')
+
+    expect(page).to have_css('dt', text: 'Valor por participante')
+    expect(page).to have_css('dd', text: 'R$ 30,00')
+
+    expect(page).to have_css('dt', text: 'Link para convite')
+    expect(page).to have_css('dd', text: expense_invite_url(Expense.last.token))
   end
 
   scenario 'and user is not signed in' do
@@ -57,7 +63,7 @@ feature 'Owner create a expense' do
   end
 
   scenario 'and fills nothing' do
-    user = User.create(email: 'teste@teste.com', password: '1q2w30')
+    user = create(:user, email: 'teste@teste.com', password: '1q2w30')
     login_as(user)
 
     visit root_path
