@@ -37,7 +37,6 @@ feature 'owner edit expense' do
   end
 
   scenario 'and it`s not the owner' do
-
     owner = create(:user)
     user = create(:user)
     expense = create(:expense, title: 'Futebol de domingo')
@@ -45,12 +44,11 @@ feature 'owner edit expense' do
                                  role: :owner)
 
     expense.user_expenses.create(user: user, payment_status: :open,
-                                role: :participant)
+                                 role: :participant)
 
     login_as(user)
     visit expense_path(expense)
 
     expect(page).not_to have_css('button', text: 'Editar')
-
   end
 end
