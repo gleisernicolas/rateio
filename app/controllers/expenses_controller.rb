@@ -43,14 +43,6 @@ class ExpensesController < ApplicationController
     )
   end
 
-  def pay
-    @expense = Expense.find(params[:id])
-    user_expense = @expense.user_expenses.find_by(user: current_user)
-    user_expense.paid!
-    user_expense.save
-    redirect_to @expense
-  end
-
   def index
     @expenses = current_user.expenses
     flash[:alert] = 'Nenhum rateio cadastrado' if @expenses.empty?

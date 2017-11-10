@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
 
-  resources :expenses, only: [:new, :create, :show, :index] do
-    post 'pay', on: :member
-  end
+  resources :expenses, only: [:new, :create, :show, :index]
+  resources :user_expenses, only: [:update]
 
   get '/convites/:token', to: 'expenses#invite', as: 'expense_invite'
   post '/convites/:token/aceitar', to: 'expenses#accept_invite',
