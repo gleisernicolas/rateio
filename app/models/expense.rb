@@ -10,4 +10,8 @@ class Expense < ApplicationRecord
   def pricer_per_participant
     total_price / participants_amount
   end
+
+  def owner
+    owner = user_expenses.find_by(role: :owner).user
+  end
 end

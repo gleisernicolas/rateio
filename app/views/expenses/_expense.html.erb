@@ -2,6 +2,9 @@
   <dt>Evento</dt>
   <dd><h1><%= @expense.title %></h1></dd>
 
+  <dt>Organizador</dt>
+  <dd><%= @expense.owner.name %></dd>
+
   <dt>Descrição</dt>
   <dd><%= @expense.description %></dd>
 
@@ -19,12 +22,7 @@
 
   <dt>Valor por participante</dt>
   <dd><%= number_to_currency(@expense.pricer_per_participant) %></dd>
-  <h2>Participantes</h2>
-  <ul>
-    <% @expense.users.each do |user| %>
-      <li>
-        <%= user.name %>
-      </li>
-    <% end %>
-  </ul>
+
+  <dt>Link para convite</dt>
+  <dd><%= link_to expense_invite_url(@expense.token), expense_invite_url(@expense.token) %></dd>
 </dl>

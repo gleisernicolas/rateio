@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    attributes:
+      user_expense:
+         payment_status: status do pagamento
+  paid: pago
+  open: aberto
