@@ -9,6 +9,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
+      @expense.user_expenses.create(user: current_user, role: 0)
       flash[:notice] = 'Rateio cadastrado com sucesso!'
       redirect_to expense_url @expense
     else
@@ -43,7 +44,13 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    
+    @expense = Expense.new(expense_params)
+    if @expense.save
+      flash[:notice] = 'Rateio atualizado com sucesso!'
+      redirect_to expense_url @expense
+    else
+      render :new
+    end
   end
   private
 

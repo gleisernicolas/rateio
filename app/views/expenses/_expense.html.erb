@@ -19,9 +19,11 @@
     <dd><%= expense.participants_amount %></dd>
     <% if expense.owner? current_user%>
       <button class="btn-danger">Apagar rateio</button>
+      <%= link_to 'Editar', edit_expense_path, class: 'btn btn-info' %>
+      
     <% end %>
 
-    <%= link_to 'Editar', edit_expense_path, class: 'btn btn-info' %>
+
     <dt>Valor por participante</dt>
     <dd><%= number_to_currency(expense.pricer_per_participant) %></dd>
     <h2>Participantes</h2>
