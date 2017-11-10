@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Owner create a expense' do
   scenario 'successfully' do
-    user = User.create(email: 'teste@teste.com', password: '1q2w30')
+    user = create(:user)
     login_as(user)
 
     visit root_path
