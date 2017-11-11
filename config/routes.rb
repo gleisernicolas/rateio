@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :expenses, only: [:new, :create, :show, :index]
-  resources :user_expenses, only: [:update]
+  resources :user_expenses, only: [:update, :show]
 
   get '/convites/:token', to: 'expenses#invite', as: 'expense_invite'
   post '/convites/:token/aceitar', to: 'expenses#accept_invite',
