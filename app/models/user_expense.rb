@@ -4,5 +4,6 @@ class UserExpense < ApplicationRecord
   belongs_to :user
   belongs_to :expense
   has_attached_file :payment_voucher
-  validates_attachment_content_type :payment_voucher, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :payment_voucher,
+                                    content_type: %r{\Aimage\/.*\z}
 end

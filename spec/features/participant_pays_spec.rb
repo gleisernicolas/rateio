@@ -47,10 +47,11 @@ feature 'participant pay expense' do
     user = create(:user, name: 'Christian')
     expense_owner = create(:user, name: 'Nicolas')
     expense = create(:expense)
-    user_expense = expense.user_expenses
-      .create(user: user, role: :participant,
-              payment_status: :pending,
-              payment_voucher: File.new(payment_voucher))
+    user_expense = expense.user_expenses.create(
+      user: user, role: :participant,
+      payment_status: :pending,
+      payment_voucher: File.new(payment_voucher)
+    )
     expense.user_expenses.create(user: expense_owner, role: :owner,
                                  payment_status: :paid)
 
@@ -71,10 +72,10 @@ feature 'participant pay expense' do
     user = create(:user, name: 'Christian')
     expense_owner = create(:user, name: 'Nicolas')
     expense = create(:expense)
-    user_expense = expense.user_expenses
-      .create(user: user, role: :participant,
-              payment_status: :pending,
-              payment_voucher: File.new(payment_voucher))
+    user_expense = expense.user_expenses.create(
+      user: user, role: :participant, payment_status: :pending,
+      payment_voucher: File.new(payment_voucher)
+    )
     expense.user_expenses.create(user: expense_owner, role: :owner,
                                  payment_status: :paid)
 
@@ -95,10 +96,10 @@ feature 'participant pay expense' do
     other_user = create(:user, name: 'João')
     expense_owner = create(:user, name: 'Nicolas')
     expense = create(:expense)
-    user_expense = expense.user_expenses
-      .create(user: user, role: :participant,
-              payment_status: :pending,
-              payment_voucher: File.new(payment_voucher))
+    user_expense = expense.user_expenses.create(
+      user: user, role: :participant, payment_status: :pending,
+      payment_voucher: File.new(payment_voucher)
+    )
     expense.user_expenses.create(user: other_user, role: :participant,
                                  payment_status: :open)
     expense.user_expenses.create(user: expense_owner, role: :owner,
@@ -119,14 +120,14 @@ feature 'participant pay expense' do
     other_user = create(:user, name: 'João')
     expense_owner = create(:user, name: 'Nicolas')
     expense = create(:expense)
-    user_expense = expense.user_expenses
-      .create(user: user, role: :participant,
-              payment_status: :pending,
-              payment_voucher: File.new(payment_voucher))
-    other_user_expense = expense.user_expenses
-      .create(user: other_user, role: :participant,
-              payment_status: :pending,
-              payment_voucher: File.new(payment_voucher))
+    user_expense = expense.user_expenses.create(
+      user: user, role: :participant, payment_status: :pending,
+      payment_voucher: File.new(payment_voucher)
+    )
+    other_user_expense = expense.user_expenses.create(
+      user: other_user, role: :participant, payment_status: :pending,
+      payment_voucher: File.new(payment_voucher)
+    )
     expense.user_expenses.create(user: expense_owner, role: :owner,
                                  payment_status: :paid)
 
@@ -135,11 +136,11 @@ feature 'participant pay expense' do
 
     within "td#receipt_#{user.id}" do
       expect(page).to have_link('Comprovante de pagamento',
-                                    href: user_expense_path(user_expense))
+                                href: user_expense_path(user_expense))
     end
     within "td#receipt_#{other_user.id}" do
       expect(page).to have_link('Comprovante de pagamento',
-                                    href: user_expense_path(other_user_expense))
+                                href: user_expense_path(other_user_expense))
     end
   end
 
@@ -148,7 +149,8 @@ feature 'participant pay expense' do
     expense_owner = create(:user, name: 'Nicolas')
     expense = create(:expense)
     user_expense = expense.user_expenses
-      .create(user: user, role: :participant, payment_status: :open)
+                          .create(user: user, role: :participant,
+                                  payment_status: :open)
     expense.user_expenses.create(user: expense_owner, role: :owner,
                                  payment_status: :paid)
 

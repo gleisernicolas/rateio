@@ -7,8 +7,7 @@ class UserExpensesController < ApplicationController
     redirect_to expense_path(@user_expense.expense)
   end
 
-  def show
-  end
+  def show; end
 
   private
 
