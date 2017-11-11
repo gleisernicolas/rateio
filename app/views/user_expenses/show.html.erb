@@ -1,3 +1,5 @@
 <h1>Comprovante de pagamento de <%= @user_expense.user.name %></h1>
 
 <%= image_tag @user_expense.payment_voucher.url %>
+
+<%= link_to 'Voltar para o rateio', expense_path(@user_expense.expense) %>
