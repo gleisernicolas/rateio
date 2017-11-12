@@ -16,6 +16,7 @@ AllCops:
     - 'config/initializers/simple_form.rb'
     - 'config/initializers/devise.rb'
     - 'config/initializers/backtrace_silencers.rb'
+    - 'vendor/**/*'
   UseCache: false
   TargetRailsVersion: 5.1
 Metrics/BlockLength:
