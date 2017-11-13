@@ -1,18 +1,29 @@
-<h2><%= t('.Sign Up') %></h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :email, required: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+  <div class=" row align-items-center">
+  <div class="col-md-6">
+    <div class="media align-items-center">
+      <%= image_tag("cadastro2.png", alt: "cadastrar", size: "200x150") %>
+      <div class="media-body">
+        <h5 class="mt-0">Faça seu cadastro</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+  <div class="col-md-6">
+    <div class="form-inputs">
+      <%= f.input :name, required: true, autofocus: true %>
+      <%= f.input :email, required: true %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, required: true %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+  </div>
+</div>
