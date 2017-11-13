@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :expenses, only: [:new, :create, :show, :index, :update, :edit] do
     post 'pay', on: :member
   end
+  resources :user_expenses, only: [:update, :show]
 
   get '/convites/:token', to: 'expenses#invite', as: 'expense_invite'
   post '/convites/:token/aceitar', to: 'expenses#accept_invite',
