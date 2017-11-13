@@ -3,5 +3,15 @@ pt-BR:
     attributes:
       user_expense:
          payment_status: status do pagamento
+         payment_voucher: Comprovante de pagamento
   paid: pago
   open: aberto
+  pending: pendente
+  helpers:
+    submit:
+      user_expense:
+        update: "Confirmar pagamento"
+  user_expense:
+    voucher:
+      error: Por favor inclua uma imagem
+      success: Comprovante enviado com sucesso

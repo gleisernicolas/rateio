@@ -1,15 +1,11 @@
-<div class="row">
-<div class="col-md-6 border">
+<div class="col-md-6">
+  <% if expense.event_photo.exists? %>
+    <%= image_tag expense.event_photo.url, class: 'img-fluid' %>
+  <% end %>
   <dl>
     <dt>Evento</dt>
-    <dd><h1><%= expense.title %></h1></dd>
-    <dt>Link para convite</dt>
-    <dd><%= link_to expense_invite_url(expense.token), expense_invite_url(expense.token) %></dd>
-  </dl>
-</div><br>
+    <dd><h1><%= link_to expense.title, expense_path(expense) %></h1></dd>
 
-<div class="col-md-6 border">
-  <dl><br>
     <dt>Organizador</dt>
     <dd><%= expense.owner.name %></dd>
 
@@ -30,6 +26,13 @@
 
     <dt>Valor por participante</dt>
     <dd><%= number_to_currency(expense.pricer_per_participant) %></dd>
+
+    <dt>Link para convite</dt>
+    <dd><%= link_to expense_invite_url(expense.token), expense_invite_url(expense.token) %></dd>
   </dl>
-</div>
+  <% if expense.owner? current_user%>
+
+    <%= link_to 'Editar', edit_expense_path(expense), class: 'btn btn-info' %>
+
+  <% end %>
 </div>
