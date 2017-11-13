@@ -1,13 +1,13 @@
 class UserExpensesController < ApplicationController
-  before_action :set_user_expense, only: [:update, :show]
+  before_action :set_user_expense, only: [:voucher, :show]
   before_action :authenticate_user!, only: [:show]
 
-  def update
-    if params[:user_expense]
-      @user_expense.payment_voucher = params[:user_expense][:payment_voucher]
-      @user_expense.pending!
+  def voucher
+    @user_expense.update(voucher_params)
+    if @user_expense.mark_as_pending
+      flash[:notice] = t('user_expense.voucher.success')
     else
-      flash[:notice] = 'Por favor inclua uma foto'
+      flash[:notice] = t('user_expense.voucher.error')
     end
     redirect_to expense_path(@user_expense.expense)
   end
@@ -18,5 +18,9 @@ class UserExpensesController < ApplicationController
 
   def set_user_expense
     @user_expense = UserExpense.find(params[:id])
+  end
+
+  def voucher_params
+    params.require(:user_expense).permit(:payment_voucher)
   end
 end
