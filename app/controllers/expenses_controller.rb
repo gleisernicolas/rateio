@@ -68,7 +68,7 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:title, :event_date, :pay_date,
-                                    :total_price,
+                                    :total_price, :event_photo,
                                     :description, :participants_amount)
   end
 end

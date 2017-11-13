@@ -8,6 +8,6 @@ pt-BR:
         pay_date: 'Data do pagamento'
         total_price: 'Valor'
         participants_amount: 'Participantes'
-
+        event_photo: 'Foto do evento'
     models:
       expense: Rateio

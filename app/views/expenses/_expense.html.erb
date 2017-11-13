@@ -1,4 +1,7 @@
 <div class="col-md-2">
+  <% if expense.event_photo.exists? %>
+    <%= image_tag expense.event_photo.url, class: 'img-fluid' %>
+  <% end %>
   <dl>
     <dt>Evento</dt>
     <dd><h1><%= link_to expense.title, expense_path(expense) %></h1></dd>
