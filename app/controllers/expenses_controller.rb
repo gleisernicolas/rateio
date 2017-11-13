@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :invite,
+  before_action :authenticate_user!, only: [:new, :create, :invite, :show,
                                             :accept_invite]
 
   def new

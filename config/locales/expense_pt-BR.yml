@@ -11,3 +11,8 @@ pt-BR:
         event_photo: 'Foto do evento'
     models:
       expense: Rateio
+  expenses:
+    edit:
+      title: Editando rateio
+    new:
+      title: Criando um rateio
