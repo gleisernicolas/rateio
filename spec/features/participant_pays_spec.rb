@@ -29,7 +29,7 @@ feature 'participant pay expense' do
 
   scenario 'and sees expense again' do
     user = create(:user, name: 'Christian')
-    expense_owner = create(:user, name: 'Nicolas')
+    expense_owner = create(:user, name: 'Rodrigo')
     expense = create(:expense)
     expense.user_expenses.create(user: user, role: :participant,
                                  payment_status: :paid)
