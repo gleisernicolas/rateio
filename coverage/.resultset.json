@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/campuscode02/Desktop/rateio/app/models/user.rb": [
+      "/home/gleiser/workspace/rateio/app/models/user.rb": [
         1,
         null,
         null,
@@ -14,16 +14,16 @@
         1,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/models/application_record.rb": [
+      "/home/gleiser/workspace/rateio/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/helpers/application_helper.rb": [
+      "/home/gleiser/workspace/rateio/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/models/expense.rb": [
+      "/home/gleiser/workspace/rateio/app/models/expense.rb": [
         1,
         1,
         null,
@@ -34,20 +34,20 @@
         1,
         null,
         1,
-        10,
+        12,
         null,
         null,
         1,
-        20,
-        20,
+        24,
+        24,
         null,
         null,
         1,
-        10,
+        12,
         null,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/models/user_expense.rb": [
+      "/home/gleiser/workspace/rateio/app/models/user_expense.rb": [
         1,
         1,
         1,
@@ -55,7 +55,7 @@
         1,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/controllers/expenses_controller.rb": [
+      "/home/gleiser/workspace/rateio/app/controllers/expenses_controller.rb": [
         1,
         1,
         null,
@@ -96,19 +96,19 @@
         null,
         null,
         1,
-        9,
-        9,
-        9,
+        11,
+        11,
+        11,
         null,
         null,
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        2,
+        2,
+        2,
         null,
         null,
         1,
@@ -139,7 +139,7 @@
         null,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/controllers/application_controller.rb": [
+      "/home/gleiser/workspace/rateio/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -151,34 +151,34 @@
         null,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/controllers/home_controller.rb": [
+      "/home/gleiser/workspace/rateio/app/controllers/home_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/campuscode02/Desktop/rateio/app/channels/application_cable/channel.rb": [
+      "/home/gleiser/workspace/rateio/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/gleiser/workspace/rateio/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/campuscode02/Desktop/rateio/app/channels/application_cable/connection.rb": [
+      "/home/gleiser/workspace/rateio/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/campuscode02/Desktop/rateio/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/campuscode02/Desktop/rateio/app/mailers/application_mailer.rb": [
+      "/home/gleiser/workspace/rateio/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1510355347
+    "timestamp": 1510552622
   }
 }
