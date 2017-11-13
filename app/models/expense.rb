@@ -12,6 +12,11 @@ class Expense < ApplicationRecord
   end
 
   def owner
-    user_expenses.find_by(role: :owner).user
+    user_expense = user_expenses.find_by(role: :owner)
+    user_expense.user if user_expense
+  end
+
+  def owner?(user)
+    owner == user
   end
 end

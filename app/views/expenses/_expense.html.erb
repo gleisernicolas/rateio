@@ -1,28 +1,35 @@
-<dl>
-  <dt>Evento</dt>
-  <dd><h1><%= link_to expense.title, expense_path(expense) %></h1></dd>
+<div class="col-md-2">
+  <dl>
+    <dt>Evento</dt>
+    <dd><h1><%= link_to expense.title, expense_path(expense) %></h1></dd>
 
-  <dt>Organizador</dt>
-  <dd><%= expense.owner.name %></dd>
+    <dt>Organizador</dt>
+    <dd><%= expense.owner.name %></dd>
 
-  <dt>Descrição</dt>
-  <dd><%= expense.description %></dd>
+    <dt>Descrição</dt>
+    <dd><%= expense.description %></dd>
 
-  <dt>Data do evento</dt>
-  <dd><%= I18n.l(expense.event_date) %></dd>
+    <dt>Data do evento</dt>
+    <dd><%= I18n.l(expense.event_date) %></dd>
 
-  <dt>Data do pagamento</dt>
-  <dd><%= I18n.l(expense.pay_date) %></dd>
+    <dt>Data do pagamento</dt>
+    <dd><%= I18n.l(expense.pay_date) %></dd>
 
-  <dt>Valor total</dt>
-  <dd><%= number_to_currency(expense.total_price) %></dd>
+    <dt>Valor total</dt>
+    <dd><%= number_to_currency(expense.total_price) %></dd>
 
-  <dt>Número de participantes</dt>
-  <dd><%= expense.participants_amount %></dd>
+    <dt>Número de participantes</dt>
+    <dd><%= expense.participants_amount %></dd>
 
-  <dt>Valor por participante</dt>
-  <dd><%= number_to_currency(expense.pricer_per_participant) %></dd>
+    <dt>Valor por participante</dt>
+    <dd><%= number_to_currency(expense.pricer_per_participant) %></dd>
 
-  <dt>Link para convite</dt>
-  <dd><%= link_to expense_invite_url(expense.token), expense_invite_url(expense.token) %></dd>
-</dl>
+    <dt>Link para convite</dt>
+    <dd><%= link_to expense_invite_url(expense.token), expense_invite_url(expense.token) %></dd>
+  </dl>
+  <% if expense.owner? current_user%>
+
+    <%= link_to 'Editar', edit_expense_path(expense), class: 'btn btn-info' %>
+
+  <% end %>
+</div>
