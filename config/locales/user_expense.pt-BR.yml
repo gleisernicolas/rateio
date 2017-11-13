@@ -11,3 +11,7 @@ pt-BR:
     submit:
       user_expense:
         update: "Confirmar pagamento"
+  user_expense:
+    voucher:
+      error: Por favor inclua uma imagem
+      success: Comprovante enviado com sucesso
