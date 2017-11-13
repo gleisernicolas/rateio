@@ -6,4 +6,9 @@ class UserExpense < ApplicationRecord
   has_attached_file :payment_voucher
   validates_attachment_content_type :payment_voucher,
                                     content_type: %r{\Aimage\/.*\z}
+
+  def mark_as_pending
+    pending! if payment_voucher.exists?
+    pending?
+  end
 end

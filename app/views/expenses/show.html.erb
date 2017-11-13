@@ -1,11 +1,11 @@
 <%= render @expense %>
 
-<% if @current_user_expense.payment_status != 'paid' %>
-  <%= simple_form_for @current_user_expense, url: user_expense_path(@current_user_expense),
-                                             html: { multipart: true } do |form| %>
+<% if @current_user_expense.open? %>
+  <%= simple_form_for @current_user_expense, url: voucher_user_expense_path(@current_user_expense), html: { multipart: true, method: :post, id: 'payment_form' } do |form| %>
     <legend>Envie aqui seu comprovante do pagamento:</legend>
     <%= form.input :payment_voucher %>
     <%= form.button :submit %>
+    <%= form.input_field :id, as: :hidden %>
   <% end %>
 <% end %>
 
