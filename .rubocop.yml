@@ -6,7 +6,6 @@ AllCops:
   Exclude:
     - 'config/puma.rb'
     - 'config/spring.rb'
-    - 'vendor/**/*'
     - 'bin/*'
     - 'db/**/*'
     - 'script/**/*'

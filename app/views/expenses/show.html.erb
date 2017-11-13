@@ -1,11 +1,7 @@
 <%= render @expense %>
 
 <% if @current_user_expense.payment_status != 'paid' %>
-  <%= simple_form_for @current_user_expense, url: user_expense_path(@expense), html: { multipart: true } do |form| %>
-    <legend>Envie aqui seu comprovante do pagamento:</legend>
-    <%= form.input :payment_voucher %>
-    <%= form.button :submit %>
-  <% end %>
+  <%= link_to 'Confirmar pagamento', pay_expense_path(@expense), method: :post %>
 <% end %>
 
 <h2>Participantes</h2>
@@ -13,8 +9,7 @@
   <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Status de Pagamento</th>
-      <th scope="col">Comprovante de Pagamento</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -22,11 +17,6 @@
       <tr>
         <td><%= user_expense.user.name %></td>
         <td id='<%= "status_#{ user_expense.user.id }" %>'><%= t(user_expense.payment_status) %></td>
-        <td id='<%= "receipt_#{ user_expense.user.id }" %>'>
-          <% if !user_expense.open? && (current_user == user_expense.user || current_user == @expense.owner) %>
-            <%= link_to 'Comprovante de pagamento', user_expense_path(user_expense) %>
-          <% end %>
-        </td>
       </tr>
     <% end %>
   </tbody>
