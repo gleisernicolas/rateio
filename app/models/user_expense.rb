@@ -8,9 +8,7 @@ class UserExpense < ApplicationRecord
                                     content_type: %r{\Aimage\/.*\z}
 
   def mark_as_pending
-    if payment_voucher.exists?
-      pending!
-    end
+    pending! if payment_voucher.exists?
     pending?
   end
 end

@@ -4,11 +4,11 @@ class UserExpensesController < ApplicationController
 
   def voucher
     @user_expense.update(voucher_params)
-    if @user_expense.mark_as_pending
-      flash[:notice] = t('user_expense.voucher.success')
-    else
-      flash[:notice] = t('user_expense.voucher.error')
-    end
+    flash[:notice] = if @user_expense.mark_as_pending
+                       t('user_expense.voucher.success')
+                     else
+                       t('user_expense.voucher.error')
+                     end
     redirect_to expense_path(@user_expense.expense)
   end
 

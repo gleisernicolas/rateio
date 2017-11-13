@@ -22,7 +22,8 @@ feature 'participant pay expense' do
     save_page
     expect(current_path).to eq expense_path(expense)
     expect(page).to have_css("#status_#{user.id}", text: 'pendente')
-    expect(page).to have_css('.alert.alert-info', text: 'Comprovante enviado com sucesso')
+    expect(page).to have_css('.alert.alert-info',
+                             text: 'Comprovante enviado com sucesso')
     within "td#receipt_#{user.id}" do
       expect(page).to have_link('Comprovante de pagamento',
                                 href: user_expense_path(user_expense))
@@ -47,10 +48,11 @@ feature 'participant pay expense' do
 
     expect(current_path).to eq expense_path(expense)
     expect(page).to have_css("#status_#{user.id}", text: 'aberto')
-    expect(page).to have_css('.alert.alert-info', text: 'Por favor inclua uma imagem')
+    expect(page).to have_css('.alert.alert-info',
+                             text: 'Por favor inclua uma imagem')
     within "td#receipt_#{user.id}" do
       expect(page).not_to have_link('Comprovante de pagamento',
-                                href: user_expense_path(user_expense))
+                                    href: user_expense_path(user_expense))
     end
   end
 
