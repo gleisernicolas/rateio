@@ -6,6 +6,7 @@ class UserExpensesController < ApplicationController
   def voucher
     @user_expense.update(voucher_params)
     flash[:notice] = if @user_expense.mark_as_pending
+                       ExpenseMailer.payment_received(@user_expense.id)
                        t('user_expense.voucher.success')
                      else
                        t('user_expense.voucher.error')

@@ -17,6 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 coverage
+public/development/
 
 /node_modules
 /yarn-error.log
