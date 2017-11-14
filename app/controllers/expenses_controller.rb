@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :invite,
+  before_action :authenticate_user!, only: [:new, :create, :invite, :show,
                                             :accept_invite]
 
   def new
@@ -45,14 +45,6 @@ class ExpensesController < ApplicationController
     )
   end
 
-  def pay
-    @expense = Expense.find(params[:id])
-    user_expense = @expense.user_expenses.find_by(user: current_user)
-    user_expense.paid!
-    user_expense.save
-    redirect_to @expense
-  end
-
   def index
     @expenses = current_user.expenses
     flash[:alert] = 'Nenhum rateio cadastrado' if @expenses.empty?
@@ -76,7 +68,7 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:title, :event_date, :pay_date,
-                                    :total_price,
+                                    :total_price, :event_photo,
                                     :description, :participants_amount)
   end
 end

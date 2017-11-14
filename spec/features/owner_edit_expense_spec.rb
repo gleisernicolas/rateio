@@ -23,6 +23,9 @@ feature 'owner edit expense' do
     fill_in 'Valor', with: 300
     fill_in 'Participantes', with: 10
 
+    attach_file('Foto do evento',
+                "#{Rails.root}/spec/support/fixtures/futebol.jpg")
+
     within('div.action') do
       click_on 'Criar Rateio'
     end

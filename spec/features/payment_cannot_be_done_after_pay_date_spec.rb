@@ -1,5 +1,6 @@
-feature 'payment must respect pay date' do
+require 'rails_helper'
 
+feature 'payment must respect pay date' do
   scenario 'success' do
     user = create(:user, name: 'Christian')
     expense_owner = create(:user, name: 'Nicolas')
@@ -8,13 +9,16 @@ feature 'payment must respect pay date' do
     expense.user_expenses.create(user: expense_owner, role: 0,
                                  payment_status: 0)
 
-    travel 2.days do
+    travel_to Date.parse('12/12/2017') do
       login_as(user, scope: :user)
       visit expense_path expense
+
+      attach_file('Comprovante de pagamento',
+                  "#{Rails.root}/spec/support/fixtures/comprovante.png")
       click_on 'Confirmar pagamento'
     end
-    expect(current_path).to have_css('.alert-danger',
-                              text: 'Pagamento fora do prazo')
+    save_page
+    expect(page).to have_css('.alert-danger', text: 'Pagamento fora do prazo')
 
     expect(page).to have_css("#status_#{user.id}", text: 'aberto')
   end
