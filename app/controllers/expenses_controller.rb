@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :invite, :show,
                                             :accept_invite]
+  before_action :validate_invite, only: [:invite]
 
   def new
     @expense = Expense.new
@@ -9,10 +10,8 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
-
       @expense.user_expenses.create(user: current_user, payment_status: :open,
                                     role: :owner)
-
       flash[:notice] = 'Rateio cadastrado com sucesso!'
       redirect_to expense_path @expense
     else
@@ -70,5 +69,13 @@ class ExpensesController < ApplicationController
     params.require(:expense).permit(:title, :event_date, :pay_date,
                                     :total_price, :event_photo,
                                     :description, :participants_amount)
+  end
+
+  def validate_invite
+    @expense = Expense.find_by(token: params[:token])
+
+    return if @expense.payment_is_available?
+    flash[:alert] = t('expenses.invite.expired')
+    redirect_to expense_path(@expense)
   end
 end

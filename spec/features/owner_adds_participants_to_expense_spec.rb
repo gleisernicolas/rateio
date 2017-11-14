@@ -43,4 +43,22 @@ feature 'owner adds participants to expense' do
     expect(current_path).to eq expense_path(expense)
     expect(page).to have_css('.alert-info', text: 'Você já está nesse rateio')
   end
+
+  scenario 'and the pay date is already out of date' do
+    user = create(:user)
+    owner = create(:user)
+    expense = create(:expense, pay_date: '29/12/2017')
+    expense.user_expenses.create(user: user, payment_status: :open,
+                                 role: :participant)
+    expense.user_expenses.create(user: owner, payment_status: :open,
+                                 role: :owner)
+    travel_to Date.parse('30/12/2017') do
+      login_as(user, scope: :user)
+      visit "/convites/#{expense.token}"
+    end
+
+    expect(page).to have_css('.alert-danger', text: "Convite já expirado, por \
+favor entrar em contato com o organizador")
+    expect(page).not_to have_css('button', text: 'Aceitar convite')
+  end
 end

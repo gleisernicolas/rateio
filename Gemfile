@@ -15,9 +15,12 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
-gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
@@ -28,6 +31,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
   gem 'simplecov', require: false
+  gem 'sqlite3'
+
 end
 
 group :development do

@@ -16,3 +16,5 @@ pt-BR:
       title: Editando rateio
     new:
       title: Criando um rateio
+    invite:
+      expired: Convite já expirado, por favor entrar em contato com o organizador
