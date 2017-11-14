@@ -8,7 +8,7 @@ feature 'owner confirm user payment' do
     expense.user_expenses.create(user: owner, payment_status: :open,
                                  role: :owner)
     participant_expense = expense.user_expenses.create(user: user,
-                                             payment_status: :open,
+                                                       payment_status: :open,
                                                        role: :participant)
 
     login_as(owner, scope: :user)
@@ -31,7 +31,8 @@ feature 'owner confirm user payment' do
     expense.user_expenses.create(user: owner, payment_status: :pending,
                                  role: :owner)
     participant_expense = expense.user_expenses.create(user: user,
-                                 payment_status: :pending, role: :participant)
+                                                       payment_status: :pending,
+                                                       role: :participant)
 
     login_as(owner, scope: :user)
     visit expense_path(expense)
@@ -50,7 +51,8 @@ feature 'owner confirm user payment' do
     expense.user_expenses.create(user: owner, payment_status: :paid,
                                  role: :owner)
     participant_expense = expense.user_expenses.create(user: user,
-                                 payment_status: :paid, role: :participant)
+                                                       payment_status: :paid,
+                                                       role: :participant)
 
     login_as(owner, scope: :user)
     visit expense_path(expense)
