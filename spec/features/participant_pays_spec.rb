@@ -19,7 +19,6 @@ feature 'participant pay expense' do
                 "#{Rails.root}/spec/support/fixtures/comprovante.png")
     click_on 'Confirmar pagamento'
 
-    save_page
     expect(current_path).to eq expense_path(expense)
     expect(page).to have_css("#status_#{user.id}", text: 'pendente')
     expect(page).to have_css('.alert.alert-info',
@@ -190,5 +189,25 @@ feature 'participant pay expense' do
       expect(page).not_to have_link('Comprovante de pagamento',
                                     href: user_expense_path(user_expense))
     end
+  end
+
+  scenario 'and owner receives a email' do
+    user = create(:user, name: 'Christian')
+    expense_owner = create(:user, name: 'Nicolas')
+    expense = create(:expense)
+    user_expense = expense.user_expenses.create(user: user, role: :participant,
+                                                payment_status: :open)
+    expense.user_expenses.create(user: expense_owner, role: :owner,
+                                 payment_status: :open)
+
+    login_as(user, scope: :user)
+    visit expense_path(expense)
+
+    attach_file('Comprovante de pagamento',
+                "#{Rails.root}/spec/support/fixtures/comprovante.png")
+
+    expect(ExpenseMailer).to receive(:payment_received)
+      .once.with(user_expense.id)
+    click_on 'Confirmar pagamento'
   end
 end

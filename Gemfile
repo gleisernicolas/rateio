@@ -32,7 +32,6 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'simplecov', require: false
   gem 'sqlite3'
-
 end
 
 group :development do
