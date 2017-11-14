@@ -16,6 +16,7 @@
       <th scope="col">Nome</th>
       <th scope="col">Status de Pagamento</th>
       <th scope="col">Comprovante de Pagamento</th>
+      <th scope="col">Ação</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +27,11 @@
         <td id='<%= "receipt_#{ user_expense.user.id }" %>'>
           <% if !user_expense.open? && (current_user == user_expense.user || current_user == @expense.owner) %>
             <%= link_to 'Comprovante de pagamento', user_expense_path(user_expense) %>
+          <% end %>
+        </td>
+        <td id='<%= "action_expense_#{ user_expense.user.id }" %>'>
+          <% if (user_expense.open? || user_expense.pending? ) && current_user == @expense.owner %>
+            <%= link_to 'Confirmar', paid_user_expense_path(user_expense), method: 'post' %>
           <% end %>
         </td>
       </tr>

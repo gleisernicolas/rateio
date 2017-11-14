@@ -1,6 +1,7 @@
 class UserExpensesController < ApplicationController
-  before_action :set_user_expense, only: [:voucher, :show]
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:update, :paid, :show]
+
+  before_action :set_user_expense, only: [:update, :show, :paid, :voucher]
 
   def voucher
     @user_expense.update(voucher_params)
@@ -13,6 +14,13 @@ class UserExpensesController < ApplicationController
   end
 
   def show; end
+
+  def paid
+    redirect_to root_path unless @user_expense.expense.owner?(current_user)
+
+    @user_expense.paid!
+    redirect_to expense_path(@user_expense.expense)
+  end
 
   private
 
