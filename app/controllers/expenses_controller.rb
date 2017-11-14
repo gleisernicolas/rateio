@@ -74,9 +74,8 @@ class ExpensesController < ApplicationController
   def validate_invite
     @expense = Expense.find_by(token: params[:token])
 
-    unless @expense.payment_is_available?
-      flash[:alert] = t('expenses.invite.expired')
-      redirect_to expense_path(@expense)
-    end
+    return if @expense.payment_is_available?
+    flash[:alert] = t('expenses.invite.expired')
+    redirect_to expense_path(@expense)
   end
 end

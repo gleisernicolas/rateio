@@ -36,9 +36,8 @@ class UserExpensesController < ApplicationController
   def validate_payment
     set_user_expense
 
-    unless @user_expense.expense.payment_is_available?
-      flash[:alert] = t('user_expense.voucher.date_limit_exceded')
-      redirect_to expense_path(@user_expense.expense)
-    end
+    return if @user_expense.expense.payment_is_available?
+    flash[:alert] = t('user_expense.voucher.date_limit_exceded')
+    redirect_to expense_path(@user_expense.expense)
   end
 end

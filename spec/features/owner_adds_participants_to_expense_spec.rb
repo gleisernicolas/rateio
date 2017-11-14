@@ -57,9 +57,8 @@ feature 'owner adds participants to expense' do
       visit "/convites/#{expense.token}"
     end
 
-    expect(page).to have_css('.alert-danger',
-                             text: 'Convite já expirado, por favor entrar em
-                             contato com o organizador')
+    expect(page).to have_css('.alert-danger', text: "Convite já expirado, por \
+favor entrar em contato com o organizador")
     expect(page).not_to have_css('button', text: 'Aceitar convite')
   end
 end
