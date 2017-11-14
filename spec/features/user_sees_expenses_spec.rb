@@ -53,8 +53,10 @@ feature 'participant logs in' do
                          password: 'senhauser123')
 
     visit root_path
-
-    click_on 'Entrar'
+    within('nav') do
+      click_on 'Entrar'
+      
+    end
 
     fill_in 'Email', with: user.email
     fill_in 'Senha', with: 'senhauser123'

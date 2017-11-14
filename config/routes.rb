@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/convites/:token', to: 'expenses#invite', as: 'expense_invite'
   post '/convites/:token/aceitar', to: 'expenses#accept_invite',
                                    as: 'expense_invite_accepted'
+
+  get 'user_root', to: 'expense#index'
 end
