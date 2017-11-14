@@ -35,7 +35,6 @@ feature 'owner edit expense' do
     fill_in 'Título', with: 'Aluguel'
     click_on 'Atualizar Rateio'
 
-    expect(page).to have_css('dt', text: 'Evento')
     expect(page).to have_css('dd', text: 'Aluguel')
   end
 

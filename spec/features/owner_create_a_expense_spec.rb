@@ -32,7 +32,6 @@ feature 'Owner create a expense' do
 
     expect(page).to have_xpath("//img[contains(@src,'futebol')]")
 
-    expect(page).to have_css('dt', text: 'Evento')
     expect(page).to have_css('dd', text: 'Futebol')
 
     expect(page).to have_css('dt', text: 'Descrição')
@@ -109,7 +108,6 @@ feature 'Owner create a expense' do
 
     expect(page).not_to have_css('img.img-fluid')
 
-    expect(page).to have_css('dt', text: 'Evento')
     expect(page).to have_css('dd', text: 'Futebol')
 
     expect(page).to have_css('dt', text: 'Descrição')

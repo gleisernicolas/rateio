@@ -12,7 +12,7 @@ feature 'owner adds participants to expense' do
     visit "/convites/#{expense.token}"
     click_on 'Aceitar convite'
 
-    expect(page).to have_css('h1', text: 'Futebol de domingo')
+    expect(page).to have_css('h2', text: 'Futebol de domingo')
     expect(page).to have_css('h2', text: 'Participantes')
     expect(page).to have_css('td', text: user.name)
   end

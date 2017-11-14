@@ -16,7 +16,6 @@ feature 'participant logs in' do
 
     click_on 'Meus Rateios'
 
-    expect(page).to have_css('dt', text: 'Evento')
     expect(page).to have_css('dd', text: expense1.title)
 
     expect(page).to have_css('dt', text: 'Descrição')
@@ -55,7 +54,7 @@ feature 'participant logs in' do
     visit root_path
     within('nav') do
       click_on 'Entrar'
-      
+
     end
 
     fill_in 'Email', with: user.email
