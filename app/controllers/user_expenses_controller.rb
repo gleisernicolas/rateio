@@ -18,8 +18,7 @@ class UserExpensesController < ApplicationController
   def paid
     redirect_to root_path unless @user_expense.expense.owner?(current_user)
 
-    @user_expense.payment_status = :paid
-    @user_expense.save
+    @user_expense.paid!
     redirect_to expense_path(@user_expense.expense)
   end
 
