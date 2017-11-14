@@ -23,4 +23,8 @@ class Expense < ApplicationRecord
   def owner?(user)
     owner == user
   end
+
+  def payment_is_available?
+    Date.today <= pay_date
+  end
 end
