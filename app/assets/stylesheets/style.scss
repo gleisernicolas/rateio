@@ -1,0 +1,22 @@
+.navbar{
+  background-color: white;
+  .navbar-brand{
+    font-family: "arial", "verdana", "sans-serif";
+    font-weight: bold;
+    font-size: 5rem;
+     img{
+      height: 100px;
+     }
+  }
+  ul li{
+    padding-right: 2rem;
+  }
+}
+
+.border{
+  border-right: 1px solid grey;
+}
+
+.container-fluid{
+  //background-image: asset-url("back.jpg");
+}
